@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres-postgis:
+    image: postgis/postgis:15-3.4
+    container_name: local_marketplace_db
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: rootpassword
+      POSTGRES_DB: local_marketplace
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
